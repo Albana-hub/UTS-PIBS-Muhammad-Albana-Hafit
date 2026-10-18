@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profil Mahasiswa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrapper">
+
+    <header>
+      <svg class="avatar" viewBox="0 0 64 64" role="img" aria-label="Foto profil">
+        <rect x="2" y="2" width="60" height="60" rx="4" fill="none" stroke="currentColor" stroke-width="3"/>
+        <circle cx="32" cy="24" r="9" fill="none" stroke="currentColor" stroke-width="3"/>
+        <path d="M14 54c2-12 10-16 18-16s16 4 18 16" fill="none" stroke="currentColor" stroke-width="3"/>
+      </svg>
+      <h1>Profil Mahasiswa</h1>
+    </header>
+
+    <nav aria-label="Menu profil">
+      <ul>
+        <li><a href="#biodata" class="aktif" data-target="biodata">Biodata</a></li>
+        <li><a href="#pendidikan" data-target="pendidikan">Pendidikan</a></li>
+        <li><a href="#pengalaman" data-target="pengalaman">Pengalaman</a></li>
+        <li><a href="#keahlian" data-target="keahlian">Keahlian</a></li>
+        <li><a href="#publikasi" data-target="publikasi">Publikasi</a></li>
+      </ul>
+    </nav>
+
+    <section id="konten">
+      <article id="biodata">
+        <h2>Biodata</h2>
+        <table>
+          <tr><th>NIM</th><td>2025081005</td></tr>
+          <tr><th>Nama</th><td>Muhammad Albana Hafit</td></tr>
+          <tr><th>Agama</th><td>Islam</td></tr>
+          <tr><th>Tanggal Lahir</th><td>8 Mei 2006</td></tr>
+          <tr><th>Tempat Lahir</th><td>Jakarta</td></tr>
+        </table>
+      </article>
+
+      <article id="pendidikan" hidden>
+        <h2>Pendidikan</h2>
+        <ul>
+          <li><strong>2025 - sekarang</strong> &ndash; S1 Sistem Informasi, Universitas Pembangunan Jaya</li>
+          <li><strong>2022 - 2025</strong> &ndash; Multimedia, SMK Letris Indonesia 1</li>
+          <li><strong>2019 - 2022</strong> &ndash; MTS Miftah Assaadah</li>
+          <li><strong>2013 - 2019</strong> &ndash; SDN Pondok Kacang Barat 03</li>
+        </ul>
+      </article>
+
+      <article id="pengalaman" hidden>
+        <h2>Pengalaman</h2>
+        <ul>
+          <li><strong>2026 - sekarang</strong> &ndash; Karyawan, Warung Kopi Serinen Kupi</li>
+          <li><strong>2024 - 2025</strong> &ndash; Karyawan, PT Bilindo</li>
+        </ul>
+      </article>
+
+      <article id="keahlian" hidden>
+        <h2>Keahlian</h2>
+        <ul>
+          <li>Pemrograman Web (HTML, CSS, JavaScript)</li>
+          <li>Basis Data (MySQL, PostgreSQL)</li>
+        </ul>
+      </article>
+
+      <article id="publikasi" hidden>
+        <h2>Publikasi</h2>
+        <ol>
+          <li>Penerapan Responsive Web Design Toko Online</li>
+        </ol>
+      </article>
+    </section>
+
+    <aside>
+      <h2>Hobi:</h2>
+      <ul>
+        <li>Mendengar Musik</li>
+        <li>Bikin Kopi</li>
+        <li>Pemrograman</li>
+        <li>Bermain Games</li>
+        <li>Animasi</li>
+      </ul>
+    </aside>
+
+    <footer>
+      <address>
+        <span>Twitter: @akun</span>
+        <span>FB: @akun</span>
+        <span>Instagram: @akun</span>
+      </address>
+      <p class="copyright">&copy; Copyright 2026. All Rights Reserved</p>
+      <div class="brand">
+        <strong>Universitas Pembangunan Jaya</strong>
+        <span>Pengolahan Informasi Berbasis Pemrograman Script</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    var links = document.querySelectorAll('nav a');
+    var artikel = document.querySelectorAll('#konten article');
+
+    links.forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        var target = link.getAttribute('data-target');
+
+        artikel.forEach(function (a) {
+          a.hidden = (a.id !== target);
+        });
+        links.forEach(function (l) {
+          l.classList.toggle('aktif', l === link);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
